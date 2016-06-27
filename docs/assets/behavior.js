@@ -164,16 +164,6 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
         "projectPath": "Gruntfile.js",
         "targetPath": "Gruntfile.js",
         "pageTitle": "Gruntfile.js",
-        "firstHeader": {
-          "type": "heading",
-          "data": {
-            "level": 1,
-            "title": "Gruntfile.js",
-            "slug": "gruntfilejs",
-            "isFileHeader": true
-          },
-          "depth": 1
-        },
         "title": "Gruntfile.js"
       },
       "depth": 1,
@@ -1229,6 +1219,57 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             }, {
               "type": "folder",
               "data": {
+                "path": "components/atoms/input",
+                "title": "input"
+              },
+              "depth": 3,
+              "children": [
+                {
+                  "type": "file",
+                  "data": {
+                    "language": {
+                      "nameMatchers": [".scss"],
+                      "pygmentsLexer": "scss",
+                      "multiLineComment": ["/*", "*", "*/"],
+                      "singleLineComment": ["//"],
+                      "ignorePrefix": "}",
+                      "foldPrefix": "^",
+                      "name": "SCSS"
+                    },
+                    "sourcePath": "D:\\xampp\\htdocs\\atomic-design-boilerplate\\components\\atoms\\input\\_input.scss",
+                    "projectPath": "components\\atoms\\input\\_input.scss",
+                    "targetPath": "components\\atoms\\input\\_input.scss",
+                    "pageTitle": "components\\atoms\\input\\_input.scss",
+                    "title": "_input.scss"
+                  },
+                  "depth": 4,
+                  "outline": []
+                }, {
+                  "type": "file",
+                  "data": {
+                    "language": {
+                      "nameMatchers": [".handlebars", ".hbs"],
+                      "pygmentsLexer": "html",
+                      "highlightJS": "handlebars",
+                      "multiLineComment": ["<!--", "", "-->", "{{!", "", "}}"],
+                      "strictMultiLineEnd": true,
+                      "ignorePrefix": "#",
+                      "foldPrefix": "^",
+                      "name": "Handlebars"
+                    },
+                    "sourcePath": "D:\\xampp\\htdocs\\atomic-design-boilerplate\\components\\atoms\\input\\input.hbs",
+                    "projectPath": "components\\atoms\\input\\input.hbs",
+                    "targetPath": "components\\atoms\\input\\input.hbs",
+                    "pageTitle": "components\\atoms\\input\\input.hbs",
+                    "title": "input.hbs"
+                  },
+                  "depth": 4,
+                  "outline": []
+                }
+              ]
+            }, {
+              "type": "folder",
+              "data": {
                 "path": "components/atoms/menu-item",
                 "title": "menu-item"
               },
@@ -1252,57 +1293,6 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "targetPath": "components\\atoms\\menu-item\\menu-item.hbs",
                     "pageTitle": "components\\atoms\\menu-item\\menu-item.hbs",
                     "title": "menu-item.hbs"
-                  },
-                  "depth": 4,
-                  "outline": []
-                }
-              ]
-            }, {
-              "type": "folder",
-              "data": {
-                "path": "components/atoms/search",
-                "title": "search"
-              },
-              "depth": 3,
-              "children": [
-                {
-                  "type": "file",
-                  "data": {
-                    "language": {
-                      "nameMatchers": [".scss"],
-                      "pygmentsLexer": "scss",
-                      "multiLineComment": ["/*", "*", "*/"],
-                      "singleLineComment": ["//"],
-                      "ignorePrefix": "}",
-                      "foldPrefix": "^",
-                      "name": "SCSS"
-                    },
-                    "sourcePath": "D:\\xampp\\htdocs\\atomic-design-boilerplate\\components\\atoms\\search\\_search.scss",
-                    "projectPath": "components\\atoms\\search\\_search.scss",
-                    "targetPath": "components\\atoms\\search\\_search.scss",
-                    "pageTitle": "components\\atoms\\search\\_search.scss",
-                    "title": "_search.scss"
-                  },
-                  "depth": 4,
-                  "outline": []
-                }, {
-                  "type": "file",
-                  "data": {
-                    "language": {
-                      "nameMatchers": [".handlebars", ".hbs"],
-                      "pygmentsLexer": "html",
-                      "highlightJS": "handlebars",
-                      "multiLineComment": ["<!--", "", "-->", "{{!", "", "}}"],
-                      "strictMultiLineEnd": true,
-                      "ignorePrefix": "#",
-                      "foldPrefix": "^",
-                      "name": "Handlebars"
-                    },
-                    "sourcePath": "D:\\xampp\\htdocs\\atomic-design-boilerplate\\components\\atoms\\search\\search.hbs",
-                    "projectPath": "components\\atoms\\search\\search.hbs",
-                    "targetPath": "components\\atoms\\search\\search.hbs",
-                    "pageTitle": "components\\atoms\\search\\search.hbs",
-                    "title": "search.hbs"
                   },
                   "depth": 4,
                   "outline": []

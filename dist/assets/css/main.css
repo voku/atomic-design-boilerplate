@@ -1732,7 +1732,7 @@ input.button {
 .icon-instagram:before {
   content: "\e620"; }
 
-.search {
+.input-default {
   border-radius: 5px; }
 
 /* menu */

@@ -1,0 +1,49 @@
+{
+  "title": "Styleguide",
+  "intro": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim nobis qui accusantium voluptatum magnam. Architecto ullam ipsam vel non ipsum amet culpa, necessitatibus perspiciatis repellat. Deleniti recusandae, ipsum tenetur autem omnis. Officiis dolor laudantium, tempore dolore id voluptate tenetur reiciendis autem. Architecto sequi, voluptatibus libero error vel omnis voluptatem neque exercitationem nisi inventore minus.",
+  "content": {
+
+    "colors": {
+      "description": "Define colors in config.json",
+      "codes": ["#eee", "rgba(75,75,75,1)", "#555555", "#333", "green"]
+    },
+
+    "typo": {
+      "description": "Define fonts in config.json",
+      "families": {
+        "p": "1em/1.4 Arial, sans-serif",
+        "h1": "2.6em/1.2 Georgia, serif",
+        "h2": "2.2em/1.2 Georgia, serif",
+        "h3": "1.8em/1.2 Georgia, serif",
+        "h4": "1.6em/1.2 Georgia, serif",
+        "h5": "1.4em/1.2 Georgia, serif",
+        "h6": "1.2em/1.2 Georgia, serif"
+      }
+    },
+
+    "atoms": {
+      "description": "Atoms are lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim nobis qui accusantium voluptatum magnam. Architecto ullam ipsam vel non ipsum amet culpa, necessitatibus perspiciatis repellat. Deleniti recusandae, ipsum tenetur autem omnis. Officiis dolor laudantium, tempore dolore id voluptate tenetur reiciendis autem. Architecto sequi, voluptatibus libero error vel omnis voluptatem neque exercitationem nisi inventore minus.",
+
+      "patterns": {
+        "button": "This is a simple button"
+      }
+    },
+
+    "molecules": {
+      "description": "<strong>Molecules</strong> are lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim nobis qui accusantium voluptatum magnam. Architecto ullam ipsam vel non ipsum amet culpa, necessitatibus perspiciatis repellat. Deleniti recusandae, ipsum tenetur autem omnis. Officiis dolor laudantium, tempore dolore id voluptate tenetur reiciendis autem. Architecto sequi, voluptatibus libero error vel omnis voluptatem neque exercitationem nisi inventore minus.",
+
+      "patterns": {
+        "search": "Search-Field"
+      }
+    },
+
+    "organisms": {
+      "description": "Organisms are lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim nobis qui accusantium voluptatum magnam. Architecto ullam ipsam vel non ipsum amet culpa, necessitatibus perspiciatis repellat. Deleniti recusandae, ipsum tenetur autem omnis. Officiis dolor laudantium, tempore dolore id voluptate tenetur reiciendis autem. Architecto sequi, voluptatibus libero error vel omnis voluptatem neque exercitationem nisi inventore minus.",
+
+      "patterns": {
+
+      }
+    }
+
+  }
+}

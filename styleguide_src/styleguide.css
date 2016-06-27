@@ -1,0 +1,141 @@
+.styleguide-body {
+  font: normal 1em/1.4 sans-serif;
+  color: #666;
+  padding: 0 30px;
+}
+
+.styleguide-h1, .styleguide-h2, .styleguide-h3, .styleguide-h4 {
+  margin: 0;
+}
+
+.styleguide-h2 {
+  border-bottom: 1px dotted #ddd;
+  margin-top: 60px;
+}
+
+.styleguide-a {
+  color: inherit;
+}
+
+.styleguide-p {
+  font-size: 0.9em;
+}
+
+.styleguide-iframe {
+  resize: both;
+  overflow: auto;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-width: 320px;
+  background-color: #fff;
+  border: 1px dashed #ddd;
+  margin-bottom: 15px;
+}
+
+.styleguide-xmp {
+  font: normal 1em/1.4 monospace;
+  position: relative;
+  border: 1px dashed #ddd;
+  padding: 15px;
+}
+
+.styleguide-xmp:before {
+  content: 'HTML';
+  font-size: 0.7em;
+  position: absolute;
+  color: #fff;
+  background: #bbb;
+  top: -18px;
+  left: -1px;
+  padding: 3px 6px;
+  display: inline-block;
+  border-radius: 2px 2px 0 0;
+}
+
+.styleguide-header {
+  min-height: 140px;
+  padding-left: 250px;
+  margin: 0 -30px;
+}
+
+.styleguide-navigation-wrapper {
+  padding: 10px 10px 60px 10px;
+  border-right: 1px solid #ddd;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 200px;
+}
+
+.styleguide-navigation-wrapper h2 {
+  margin-top: 0;
+}
+
+.styleguide-navigation > li {
+  padding-bottom: 10px;
+}
+
+.styleguide-navigation > li:last-child {
+  padding-bottom: 0;
+}
+
+.styleguide-navigation, .styleguide-navigation ul {
+  list-style: none;
+  padding-left: 15px;
+}
+
+.styleguide-navigation a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.styleguide-navigation ul a:before {
+  content: '\02EA';
+  font-size: 1.2em;
+  position: relative;
+  top: -5px;
+  padding-right: 5px;
+}
+
+.styleguide-main {
+  margin-left: 220px;
+}
+
+.styleguide-pattern {
+  padding-top: 30px;
+}
+
+.styleguide-top-link {
+  text-align: right;
+}
+
+.styleguide-top-link a {
+  text-decoration: none;
+}
+
+.styleguide-top-link a:before {
+  content: '\2191';
+  font-size: 1.2em;
+  position: relative;
+  top: 0;
+  padding-right: 5px;
+  text-decoration: none;
+}
+
+.styleguide-color-cube {
+  width: 160px;
+  height: 160px;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 15px 0;
+  text-align: center;
+}
+
+.styleguide-color-cube div {
+  background: #fff;
+  padding: 3px 6px;
+  border-radius: 2px;
+  display: inline-block;
+  font-size: 0.8em;
+}
