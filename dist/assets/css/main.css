@@ -373,14 +373,14 @@ html {
 @media \0screen {
   html {
     font-family: "large"; } }
-body:after  {
+body:after┬á {
   display: none; }
   @media (min-width: 68.75em) {
-    body:after  {
+    body:after┬á {
       content: "large"; } }
 
 body {
-  background-color: white; }
+  background-color: #fff; }
 
 ul.color:nth-child(1) li:nth-child(1) {
   background-color: #67af45; }
@@ -396,9 +396,9 @@ ul.color:nth-child(3) li:nth-child(2) {
   background-color: #838181; }
 ul.color:nth-child(4) li:nth-child(1) {
   background-color: #303030;
-  color: white; }
+  color: #fff; }
 ul.color:nth-child(4) li:nth-child(2) {
-  background-color: white; }
+  background-color: #fff; }
 ul.color:nth-child(4) li:nth-child(3) {
   background-color: #f4f5f0; }
 
@@ -498,8 +498,8 @@ body {
   font-size: 100%; }
 
 body {
-  background: white;
-  color: #222222;
+  background: #fff;
+  color: #222;
   padding: 0;
   margin: 0;
   font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
@@ -1594,7 +1594,7 @@ body.no-scroll {
   -moz-appearance: none;
   text-transform: uppercase;
   border: none;
-  background: #08374e;
+  background: #08374E;
   color: #FFF;
   font-size: 14px;
   padding: 5px 15px;
@@ -1731,6 +1731,9 @@ input.button {
 
 .icon-instagram:before {
   content: "\e620"; }
+
+.search {
+  border-radius: 5px; }
 
 /* menu */
 nav {
@@ -1879,7 +1882,7 @@ header {
     header.smaller > .row {
       padding: 0; }
   header .bar {
-    background: #08374e;
+    background: #08374E;
     height: 8px; }
     header .bar .menu-marker {
       position: absolute;
@@ -1958,7 +1961,7 @@ img {
     width: 180px;
     height: 180px;
     border-radius: 100%;
-    background: #08374e;
+    background: #08374E;
     color: #FFF;
     padding: 40px 20px; }
     .block.badge p {
