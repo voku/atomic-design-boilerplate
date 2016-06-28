@@ -11,7 +11,7 @@ dest:             <%= settings.root %>
 docs:             docs
 
 # Data
-data:             data/*.{json,yml}
+data:             data/root.json
 
 #Assets
 assets:           assets

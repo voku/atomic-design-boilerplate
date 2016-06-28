@@ -60,29 +60,17 @@ module.exports = <span class="hljs-function"><span class="hljs-keyword">function
           <span class="hljs-string">'&lt;%= settings.dest %&gt;/&lt;%= settings.assets %&gt;/css/main.min.css'</span>: [<span class="hljs-string">'&lt;%= settings.dest %&gt;/&lt;%= settings.assets %&gt;/css/main.css'</span>]
         }
       }
-    },</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h5 id="build-html-from-templates-and-data">Build HTML from templates and data</h5></div></div></div><div class="segment"><div class="code"><div class="wrapper">    assemble: {
-      options: {
-        flatten:     <span class="hljs-literal">true</span>,
-        production:  production,
-        assets:      <span class="hljs-string">'&lt;%= settings.dest %&gt;/&lt;%= settings.assets %&gt;'</span>,
-        postprocess: <span class="hljs-built_in">require</span>(<span class="hljs-string">'pretty'</span>),</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><blockquote>
-<p>Metadata</p>
-</blockquote></div></div><div class="code"><div class="wrapper">        pkg:  <span class="hljs-string">'&lt;%= pkg %&gt;'</span>,
-        site: <span class="hljs-string">'&lt;%= site %&gt;'</span>,
-        data: [<span class="hljs-string">'&lt;%= settings.data %&gt;'</span>],</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><blockquote>
-<p>Templates</p>
-</blockquote></div></div><div class="code"><div class="wrapper">        partials:  <span class="hljs-string">'&lt;%= settings.partials %&gt;/*.{hbs,twig}'</span>,
-        layoutdir: <span class="hljs-string">'&lt;%= settings.layouts %&gt;'</span>,
-        layout:    <span class="hljs-string">'&lt;%= settings.layout %&gt;'</span>,</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><blockquote>
-<p>Extensions</p>
-</blockquote></div></div><div class="code"><div class="wrapper">        helpers: <span class="hljs-string">'&lt;%= settings.helpers %&gt;'</span>
-      },
-      site:    {
-        files: [
-          { <span class="hljs-string">'&lt;%= settings.dest %&gt;/'</span>: [<span class="hljs-string">'&lt;%= settings.templates %&gt;/**/*.{hbs,twig}'</span>] },
-          { <span class="hljs-string">'&lt;%= settings.dest %&gt;/components/atoms/'</span>: [<span class="hljs-string">'&lt;%= settings.atoms %&gt;/**/*.{hbs,twig}'</span>] },
-          { <span class="hljs-string">'&lt;%= settings.dest %&gt;/components/molecules/'</span>: [<span class="hljs-string">'&lt;%= settings.molecules %&gt;/**/*.{hbs,twig}'</span>] },
-          { <span class="hljs-string">'&lt;%= settings.dest %&gt;/components/organisms/'</span>: [<span class="hljs-string">'&lt;%= settings.organisms %&gt;/**/*.{hbs,twig}'</span>] }
+    },</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h5 id="build-html-from-templates-and-data">Build HTML from templates and data</h5></div></div></div><div class="segment"><div class="code"><div class="wrapper">    twigRender: {
+      site: {
+        files : [
+          {
+            data: [<span class="hljs-string">'&lt;%= settings.data %&gt;'</span>],
+            expand: <span class="hljs-literal">true</span>,
+            cwd: <span class="hljs-string">'&lt;%= settings.components %&gt;'</span>,
+            src: [<span class="hljs-string">'**/*.twig'</span>],
+            dest: <span class="hljs-string">'&lt;%= settings.dest %&gt;/components/'</span>,
+            ext: <span class="hljs-string">'.html'</span>   <span class="hljs-comment">// index.twig + datafile.json =&gt; index.html</span>
+          }
         ]
       }
     },</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h5 id="copy-vendor-scripts">Copy vendor scripts</h5></div></div></div><div class="segment"><div class="code"><div class="wrapper">    copy: {
@@ -135,8 +123,8 @@ module.exports = <span class="hljs-function"><span class="hljs-keyword">function
       },
       hbs:   {
         files: [
-          <span class="hljs-string">'&lt;%= settings.templates %&gt;/**/*.{hbs,twig}'</span>,
-          <span class="hljs-string">'&lt;%= settings.components %&gt;/**/*.{hbs,twig}'</span>,
+          <span class="hljs-string">'&lt;%= settings.templates %&gt;/**/*.hbs'</span>,
+          <span class="hljs-string">'&lt;%= settings.components %&gt;/**/*.hbs'</span>,
           <span class="hljs-string">'&lt;%= settings.data %&gt;/*.json'</span>
         ],
         tasks: [
@@ -251,7 +239,7 @@ module.exports = <span class="hljs-function"><span class="hljs-keyword">function
       }
     }
   });</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="load-npm-plugins-to-provide-necessary-tasks">Load npm plugins to provide necessary tasks.</h3></div></div></div><div class="segment"><div class="code"><div class="wrapper">  grunt.loadNpmTasks(<span class="hljs-string">'grunt-newer'</span>);
-  grunt.loadNpmTasks(<span class="hljs-string">'grunt-assemble'</span>);
+  grunt.loadNpmTasks(<span class="hljs-string">'grunt-twig-render'</span>);
   grunt.loadNpmTasks(<span class="hljs-string">'grunt-contrib-clean'</span>);
   grunt.loadNpmTasks(<span class="hljs-string">'grunt-contrib-copy'</span>);
   grunt.loadNpmTasks(<span class="hljs-string">'grunt-contrib-jshint'</span>);
@@ -281,7 +269,7 @@ module.exports = <span class="hljs-function"><span class="hljs-keyword">function
 <p>Build HTML</p>
 </blockquote>
 </li>
-</ul></div></div><div class="code"><div class="wrapper">  grunt.registerTask(<span class="hljs-string">'build'</span>, [<span class="hljs-string">'assemble:site'</span>]);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><ul>
+</ul></div></div><div class="code"><div class="wrapper">  grunt.registerTask(<span class="hljs-string">'build'</span>, [<span class="hljs-string">'twigRender:site'</span>]);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><ul>
 <li><code>grunt scripts</code><blockquote>
 <p>Check for errors in javascript</p>
 </blockquote>

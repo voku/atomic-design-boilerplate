@@ -1,7 +1,6 @@
-{{! Load Require }}
-{{#if production}}
+{% if production %}
 	<script src="{{assets}}/js/vendor/require.js"></script>
 	<script src="{{assets}}/js/all.min.js"></script>
-{{else}}
+{% else %}
 	<script data-main="{{assets}}/src/main" src="{{assets}}/src/vendor/require.js"></script>
-{{/if}}
+{% endif %}

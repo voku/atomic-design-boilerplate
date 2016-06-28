@@ -33,7 +33,7 @@
       "description": "<strong>Molecules</strong> are lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim nobis qui accusantium voluptatum magnam. Architecto ullam ipsam vel non ipsum amet culpa, necessitatibus perspiciatis repellat. Deleniti recusandae, ipsum tenetur autem omnis. Officiis dolor laudantium, tempore dolore id voluptate tenetur reiciendis autem. Architecto sequi, voluptatibus libero error vel omnis voluptatem neque exercitationem nisi inventore minus.",
 
       "patterns": {
-        "search": "Search-Field"
+        "menu": "Simple Menu"
       }
     },
 
@@ -41,7 +41,7 @@
       "description": "Organisms are lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim nobis qui accusantium voluptatum magnam. Architecto ullam ipsam vel non ipsum amet culpa, necessitatibus perspiciatis repellat. Deleniti recusandae, ipsum tenetur autem omnis. Officiis dolor laudantium, tempore dolore id voluptate tenetur reiciendis autem. Architecto sequi, voluptatibus libero error vel omnis voluptatem neque exercitationem nisi inventore minus.",
 
       "patterns": {
-
+        "header": "Simple Header"
       }
     }
 

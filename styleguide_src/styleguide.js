@@ -66,13 +66,13 @@ $.getJSON('config.json', function(data) {
               '<div class="' + key + ' pattern">' +
               '<h3 class="styleguide-h3" id="' + key + '">' + key + '</h3>' +
               '<p>' + val + '</p>' +
-              '<iframe class="styleguide-iframe" src="../components/' + patternName + '/' + key + '.' + fileext + '"></iframe>' +
+              '<iframe class="styleguide-iframe" src="../components/' + patternName + '/' + key + '/' + key + '.' + fileext + '"></iframe>' +
               '<xmp class="snippet-' + key + ' styleguide-xmp"></xmp>' +
               '</div>';
 
       $('#' + patternName).append(template);
 
-      $.get('../components/' + patternName + '/' + key + '.' + fileext, function(data) {
+      $.get('../components/' + patternName + '/' + key + '/' + key + '.' + fileext, function(data) {
         var origHTML  = $(data).filter('#snippet');
         var innerHTML = origHTML.prop('innerHTML');
         $('.snippet-' + key).html(innerHTML);

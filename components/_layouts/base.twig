@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    {% block head %}
+      {% include "../_partials/head.twig" %}
+    {% endblock %}
+  </head>
+  <body class="{% block bodyClass %}{% endblock %}">
+
+    <div id="snippet">
+      {% block body %}{% endblock %}
+    </div>
+
+    <!-- JS and analytics only. -->
+    {% block javascripts %}
+      {% include "../_partials/javascripts.twig" %}
+    {% endblock %}
+  </body>
+</html>

@@ -101,32 +101,17 @@ module.exports = function(grunt) {
 
 
     // ##### Build HTML from templates and data
-    assemble: {
-      options: {
-        flatten:     true,
-        production:  production,
-        assets:      '<%= settings.dest %>/<%= settings.assets %>',
-        postprocess: require('pretty'),
-
-        // > Metadata
-        pkg:  '<%= pkg %>',
-        site: '<%= site %>',
-        data: ['<%= settings.data %>'],
-
-        // > Templates
-        partials:  '<%= settings.partials %>/*.{hbs,twig}',
-        layoutdir: '<%= settings.layouts %>',
-        layout:    '<%= settings.layout %>',
-
-        // > Extensions
-        helpers: '<%= settings.helpers %>'
-      },
-      site:    {
-        files: [
-          { '<%= settings.dest %>/': ['<%= settings.templates %>/**/*.{hbs,twig}'] },
-          { '<%= settings.dest %>/components/atoms/': ['<%= settings.atoms %>/**/*.{hbs,twig}'] },
-          { '<%= settings.dest %>/components/molecules/': ['<%= settings.molecules %>/**/*.{hbs,twig}'] },
-          { '<%= settings.dest %>/components/organisms/': ['<%= settings.organisms %>/**/*.{hbs,twig}'] }
+    twigRender: {
+      site: {
+        files : [
+          {
+            data: ['<%= settings.data %>'],
+            expand: true,
+            cwd: '<%= settings.components %>',
+            src: ['**/*.twig'],
+            dest: '<%= settings.dest %>/components/',
+            ext: '.html'   // index.twig + datafile.json => index.html
+          }
         ]
       }
     },
@@ -191,8 +176,8 @@ module.exports = function(grunt) {
       },
       hbs:   {
         files: [
-          '<%= settings.templates %>/**/*.{hbs,twig}',
-          '<%= settings.components %>/**/*.{hbs,twig}',
+          '<%= settings.templates %>/**/*.hbs',
+          '<%= settings.components %>/**/*.hbs',
           '<%= settings.data %>/*.json'
         ],
         tasks: [
@@ -338,7 +323,7 @@ module.exports = function(grunt) {
   // ### Load npm plugins to provide necessary tasks.
   //
   grunt.loadNpmTasks('grunt-newer');
-  grunt.loadNpmTasks('grunt-assemble');
+  grunt.loadNpmTasks('grunt-twig-render');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -388,7 +373,7 @@ module.exports = function(grunt) {
   grunt.registerTask('server', ['browserSync']);
   // * `grunt build`
   // > Build HTML
-  grunt.registerTask('build', ['assemble:site']);
+  grunt.registerTask('build', ['twigRender:site']);
   // * `grunt scripts`
   // > Check for errors in javascript
   grunt.registerTask('scripts', ['requirejs']);

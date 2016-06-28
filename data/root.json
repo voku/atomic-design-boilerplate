@@ -1,4 +1,7 @@
 {
+  "index": {
+    "bodyClass": "this is a test | öäü"
+  },
 	"header": {
 		"menu": {
 			"items":[{
