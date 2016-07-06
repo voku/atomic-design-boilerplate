@@ -20,6 +20,15 @@ module.exports = <span class="hljs-function"><span class="hljs-keyword">function
         <span class="hljs-string">'&lt;%= settings.components %&gt;/**/*.js'</span>,
         <span class="hljs-string">'!&lt;%= settings.scripts %&gt;/vendor/**/*.js'</span> <span class="hljs-comment">// exclude vendor scripts</span>
       ]
+    },</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h5 id="compile-js--require39modules39-in-the-browser-by-bundling-up-all-of-your-dependencies">Compile JS | require(&#39;modules&#39;) in the browser by bundling up all of your dependencies</h5></div></div></div><div class="segment"><div class="code"><div class="wrapper">    browserify:{
+      dist:{
+        options:{
+          transform: [[<span class="hljs-string">'babelify'</span>, {presets: [<span class="hljs-string">'es2015'</span>]}]]
+        },
+        files: {
+          <span class="hljs-string">'&lt;%= settings.dest %&gt;/&lt;%= settings.assets %&gt;/js/app.js'</span>: [<span class="hljs-string">'&lt;%= settings.components %&gt;/**/*.js'</span>]
+        }
+      }
     },</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h5 id="compile-sass">Compile SASS</h5></div></div></div><div class="segment"><div class="code"><div class="wrapper">    sass: {
       options: {
         sourcemap: <span class="hljs-literal">true</span>
@@ -54,7 +63,7 @@ module.exports = <span class="hljs-function"><span class="hljs-keyword">function
     },</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h5 id="minify-css">Minify CSS</h5></div></div></div><div class="segment"><div class="code"><div class="wrapper">    cssmin: {
       add_banner: {
         options: {
-          banner: <span class="hljs-string">'/* Creuna */'</span>
+          banner: <span class="hljs-string">'/* CSS */'</span>
         },
         files:   {
           <span class="hljs-string">'&lt;%= settings.dest %&gt;/&lt;%= settings.assets %&gt;/css/main.min.css'</span>: [<span class="hljs-string">'&lt;%= settings.dest %&gt;/&lt;%= settings.assets %&gt;/css/main.css'</span>]
@@ -67,7 +76,7 @@ module.exports = <span class="hljs-function"><span class="hljs-keyword">function
             data: [<span class="hljs-string">'&lt;%= settings.data %&gt;'</span>],
             expand: <span class="hljs-literal">true</span>,
             cwd: <span class="hljs-string">'&lt;%= settings.components %&gt;'</span>,
-            src: [<span class="hljs-string">'**/*.twig'</span>],
+            src: [<span class="hljs-string">'**/*.twig'</span>, <span class="hljs-string">'!**/_*.twig'</span>], <span class="hljs-comment">// Match twig templates but not partials</span>
             dest: <span class="hljs-string">'&lt;%= settings.dest %&gt;/components/'</span>,
             ext: <span class="hljs-string">'.html'</span>   <span class="hljs-comment">// index.twig + datafile.json =&gt; index.html</span>
           }
@@ -118,13 +127,23 @@ module.exports = <span class="hljs-function"><span class="hljs-keyword">function
         ],
         tasks: [
           <span class="hljs-string">'copy:site'</span>,
-          <span class="hljs-string">'scripts'</span>
+          <span class="hljs-string">'scripts'</span>,
+          <span class="hljs-string">'browserify:dist'</span>
         ]
       },
       hbs:   {
         files: [
-          <span class="hljs-string">'&lt;%= settings.templates %&gt;/**/*.hbs'</span>,
           <span class="hljs-string">'&lt;%= settings.components %&gt;/**/*.hbs'</span>,
+          <span class="hljs-string">'&lt;%= settings.data %&gt;/*.json'</span>
+        ],
+        tasks: [
+          <span class="hljs-string">'copy:site'</span>,
+          <span class="hljs-string">'build'</span>
+        ]
+      },
+      twig:   {
+        files: [
+          <span class="hljs-string">'&lt;%= settings.components %&gt;/**/*.twig'</span>,
           <span class="hljs-string">'&lt;%= settings.data %&gt;/*.json'</span>
         ],
         tasks: [
@@ -141,15 +160,6 @@ module.exports = <span class="hljs-function"><span class="hljs-keyword">function
           <span class="hljs-string">'&lt;%= settings.organisms %&gt;/**/*.js'</span>
         ],
         tasks: [<span class="hljs-string">'test'</span>]
-      }
-    },</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h5 id="compile-scripts-with-require-js">Compile scripts with Require JS</h5></div></div></div><div class="segment"><div class="code"><div class="wrapper">    requirejs: {
-      site: {
-        options: {
-          baseUrl:        <span class="hljs-string">"&lt;%= settings.scripts %&gt;"</span>,
-          mainConfigFile: <span class="hljs-string">"&lt;%= settings.scripts %&gt;/config.js"</span>,
-          name:           <span class="hljs-string">"main"</span>,
-          out:            <span class="hljs-string">"&lt;%= settings.dest %&gt;/&lt;%= settings.scripts %&gt;/all.min.js"</span>
-        }
       }
     },</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h5 id="generate-documentation">Generate documentation</h5></div></div></div><div class="segment"><div class="code"><div class="wrapper">    groc: {
       options: {
@@ -240,14 +250,13 @@ module.exports = <span class="hljs-function"><span class="hljs-keyword">function
     }
   });</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="load-npm-plugins-to-provide-necessary-tasks">Load npm plugins to provide necessary tasks.</h3></div></div></div><div class="segment"><div class="code"><div class="wrapper">  grunt.loadNpmTasks(<span class="hljs-string">'grunt-newer'</span>);
   grunt.loadNpmTasks(<span class="hljs-string">'grunt-twig-render'</span>);
+  grunt.loadNpmTasks(<span class="hljs-string">'grunt-browserify'</span>);
   grunt.loadNpmTasks(<span class="hljs-string">'grunt-contrib-clean'</span>);
   grunt.loadNpmTasks(<span class="hljs-string">'grunt-contrib-copy'</span>);
   grunt.loadNpmTasks(<span class="hljs-string">'grunt-contrib-jshint'</span>);
   grunt.loadNpmTasks(<span class="hljs-string">'grunt-contrib-watch'</span>);
   grunt.loadNpmTasks(<span class="hljs-string">'grunt-contrib-cssmin'</span>);
   grunt.loadNpmTasks(<span class="hljs-string">'grunt-contrib-sass'</span>);
-  grunt.loadNpmTasks(<span class="hljs-string">'grunt-contrib-requirejs'</span>);
-  grunt.loadNpmTasks(<span class="hljs-string">'grunt-contrib-requirejs'</span>);
   grunt.loadNpmTasks(<span class="hljs-string">'grunt-mocha-casperjs'</span>);
   grunt.loadNpmTasks(<span class="hljs-string">'grunt-browser-sync'</span>);
   grunt.loadNpmTasks(<span class="hljs-string">'grunt-phantomcss'</span>);
@@ -255,8 +264,7 @@ module.exports = <span class="hljs-function"><span class="hljs-keyword">function
   grunt.loadNpmTasks(<span class="hljs-string">'grunt-karma'</span>);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Modified <a href="https://github.com/seltar/grunt-groc">grunt-groc</a> task with personal fork of
 <a href="https://github.com/seltar/groc">groc</a></p></div></div><div class="code"><div class="wrapper">  grunt.loadNpmTasks(<span class="hljs-string">'grunt-groc'</span>);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="custom-task-to-generate-import-statements-of-all-components">Custom task to generate import statements of all components</h3></div></div></div><div class="segment"><div class="code"><div class="wrapper">  grunt.registerTask(<span class="hljs-string">'sassimp'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(target)</span> {</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Get the options</p></div></div><div class="code"><div class="wrapper">    <span class="hljs-keyword">var</span> options  = grunt.config.get(<span class="hljs-keyword">this</span>.name)[target];
     <span class="hljs-keyword">var</span> filesTmp = options.files;
-    <span class="hljs-keyword">var</span> files    = [<span class="hljs-string">'// Autogenerated - Don\'t modify! '</span>];</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Get all files matching the glob from options</p></div></div><div class="code"><div class="wrapper">    grunt.file.expand(filesTmp).map(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(filepath)</span> {</span>
-      console.log(filepath);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Get basename</p></div></div><div class="code"><div class="wrapper">      <span class="hljs-keyword">var</span> ofile = path.basename(filepath);
+    <span class="hljs-keyword">var</span> files    = [<span class="hljs-string">'// Autogenerated - Don\'t modify! '</span>];</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Get all files matching the glob from options</p></div></div><div class="code"><div class="wrapper">    grunt.file.expand(filesTmp).map(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(filepath)</span> {</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>DEUBG</p></div></div><div class="code"><div class="wrapper">      console.log(filepath);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Get basename</p></div></div><div class="code"><div class="wrapper">      <span class="hljs-keyword">var</span> ofile = path.basename(filepath);
       <span class="hljs-keyword">var</span> file  = ofile.replace(<span class="hljs-string">".scss"</span>, <span class="hljs-string">""</span>).substr(<span class="hljs-number">1</span>);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Push SASS import statement into array</p></div></div><div class="code"><div class="wrapper">      files.push(<span class="hljs-string">'@import "'</span> + <span class="hljs-string">"../../"</span> + filepath.replace(ofile, file) + <span class="hljs-string">'";'</span>);
     });</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Write results to destination file</p></div></div><div class="code"><div class="wrapper">    grunt.file.write(options.dest, files.join(<span class="hljs-string">"\n"</span>));
   });</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="tasks">Tasks</h3></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><ul>
@@ -274,7 +282,7 @@ module.exports = <span class="hljs-function"><span class="hljs-keyword">function
 <p>Check for errors in javascript</p>
 </blockquote>
 </li>
-</ul></div></div><div class="code"><div class="wrapper">  grunt.registerTask(<span class="hljs-string">'scripts'</span>, [<span class="hljs-string">'requirejs'</span>]);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><ul>
+</ul></div></div><div class="code"><div class="wrapper">  grunt.registerTask(<span class="hljs-string">'scripts'</span>, [<span class="hljs-string">'browserify:dist'</span>]);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><ul>
 <li><code>grunt styles</code><blockquote>
 <p>Generate components import and compile SASS</p>
 </blockquote>

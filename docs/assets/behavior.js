@@ -30,25 +30,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             {
               "type": "heading",
               "data": {
-                "level": 6,
-                "title": "Version",
-                "slug": "version"
-              },
-              "depth": 6
-            }, {
-              "type": "heading",
-              "data": {
                 "level": 3,
                 "title": "What is this",
                 "slug": "what-is-this"
-              },
-              "depth": 3
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 3,
-                "title": "Commenting",
-                "slug": "commenting"
               },
               "depth": 3
             }, {
@@ -93,25 +77,9 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
         {
           "type": "heading",
           "data": {
-            "level": 6,
-            "title": "Version",
-            "slug": "version"
-          },
-          "depth": 6
-        }, {
-          "type": "heading",
-          "data": {
             "level": 3,
             "title": "What is this",
             "slug": "what-is-this"
-          },
-          "depth": 3
-        }, {
-          "type": "heading",
-          "data": {
-            "level": 3,
-            "title": "Commenting",
-            "slug": "commenting"
           },
           "depth": 3
         }, {
@@ -205,6 +173,14 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "type": "heading",
               "data": {
                 "level": 5,
+                "title": "Compile JS | require(&#39;modules&#39;) in the browser by bundling up all of your dependencies",
+                "slug": "compile-js--require39modules39-in-the-browser-by-bundling-up-all-of-your-dependencies"
+              },
+              "depth": 5
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 5,
                 "title": "Compile SASS",
                 "slug": "compile-sass"
               },
@@ -255,14 +231,6 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "level": 5,
                 "title": "Watch files",
                 "slug": "watch-files"
-              },
-              "depth": 5
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 5,
-                "title": "Compile scripts with Require JS",
-                "slug": "compile-scripts-with-require-js"
               },
               "depth": 5
             }, {
@@ -342,76 +310,6 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
       "depth": 1,
       "children": [
         {
-          "type": "folder",
-          "data": {
-            "path": "assets/js",
-            "title": "js"
-          },
-          "depth": 2,
-          "children": [
-            {
-              "type": "file",
-              "data": {
-                "language": {
-                  "nameMatchers": [".js"],
-                  "pygmentsLexer": "javascript",
-                  "multiLineComment": ["/*", "*", "*/"],
-                  "singleLineComment": ["//"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "^",
-                  "name": "JavaScript"
-                },
-                "sourcePath": "D:\\xampp\\htdocs\\atomic-design-boilerplate\\assets\\js\\base.js",
-                "projectPath": "assets\\js\\base.js",
-                "targetPath": "assets\\js\\base.js",
-                "pageTitle": "assets\\js\\base.js",
-                "title": "base.js"
-              },
-              "depth": 3,
-              "outline": []
-            }, {
-              "type": "file",
-              "data": {
-                "language": {
-                  "nameMatchers": [".js"],
-                  "pygmentsLexer": "javascript",
-                  "multiLineComment": ["/*", "*", "*/"],
-                  "singleLineComment": ["//"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "^",
-                  "name": "JavaScript"
-                },
-                "sourcePath": "D:\\xampp\\htdocs\\atomic-design-boilerplate\\assets\\js\\config.js",
-                "projectPath": "assets\\js\\config.js",
-                "targetPath": "assets\\js\\config.js",
-                "pageTitle": "assets\\js\\config.js",
-                "title": "config.js"
-              },
-              "depth": 3,
-              "outline": []
-            }, {
-              "type": "file",
-              "data": {
-                "language": {
-                  "nameMatchers": [".js"],
-                  "pygmentsLexer": "javascript",
-                  "multiLineComment": ["/*", "*", "*/"],
-                  "singleLineComment": ["//"],
-                  "ignorePrefix": "}",
-                  "foldPrefix": "^",
-                  "name": "JavaScript"
-                },
-                "sourcePath": "D:\\xampp\\htdocs\\atomic-design-boilerplate\\assets\\js\\main.js",
-                "projectPath": "assets\\js\\main.js",
-                "targetPath": "assets\\js\\main.js",
-                "pageTitle": "assets\\js\\main.js",
-                "title": "main.js"
-              },
-              "depth": 3,
-              "outline": []
-            }
-          ]
-        }, {
           "type": "folder",
           "data": {
             "path": "assets/sass",
@@ -862,6 +760,26 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "targetPath": "components\\atoms\\button\\_button.scss",
                     "pageTitle": "components\\atoms\\button\\_button.scss",
                     "title": "_button.scss"
+                  },
+                  "depth": 4,
+                  "outline": []
+                }, {
+                  "type": "file",
+                  "data": {
+                    "language": {
+                      "nameMatchers": [".js"],
+                      "pygmentsLexer": "javascript",
+                      "multiLineComment": ["/*", "*", "*/"],
+                      "singleLineComment": ["//"],
+                      "ignorePrefix": "}",
+                      "foldPrefix": "^",
+                      "name": "JavaScript"
+                    },
+                    "sourcePath": "D:\\xampp\\htdocs\\atomic-design-boilerplate\\components\\atoms\\button\\button.js",
+                    "projectPath": "components\\atoms\\button\\button.js",
+                    "targetPath": "components\\atoms\\button\\button.js",
+                    "pageTitle": "components\\atoms\\button\\button.js",
+                    "title": "button.js"
                   },
                   "depth": 4,
                   "outline": []

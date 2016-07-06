@@ -37,6 +37,18 @@ module.exports = function(grunt) {
       ]
     },
 
+    // ##### Compile JS | require('modules') in the browser by bundling up all of your dependencies
+    browserify:{
+      dist:{
+        options:{
+          transform: [['babelify', {presets: ['es2015']}]]
+        },
+        files: {
+          '<%= settings.dest %>/<%= settings.assets %>/js/app.js': ['<%= settings.components %>/**/*.js']
+        }
+      }
+    },
+
     // ##### Compile SASS
     sass: {
       options: {
@@ -91,7 +103,7 @@ module.exports = function(grunt) {
     cssmin: {
       add_banner: {
         options: {
-          banner: '/* Creuna */'
+          banner: '/* CSS */'
         },
         files:   {
           '<%= settings.dest %>/<%= settings.assets %>/css/main.min.css': ['<%= settings.dest %>/<%= settings.assets %>/css/main.css']
@@ -108,7 +120,7 @@ module.exports = function(grunt) {
             data: ['<%= settings.data %>'],
             expand: true,
             cwd: '<%= settings.components %>',
-            src: ['**/*.twig'],
+            src: ['**/*.twig', '!**/_*.twig'], // Match twig templates but not partials
             dest: '<%= settings.dest %>/components/',
             ext: '.html'   // index.twig + datafile.json => index.html
           }
@@ -171,13 +183,23 @@ module.exports = function(grunt) {
         ],
         tasks: [
           'copy:site',
-          'scripts'
+          'scripts',
+          'browserify:dist'
         ]
       },
       hbs:   {
         files: [
-          '<%= settings.templates %>/**/*.hbs',
           '<%= settings.components %>/**/*.hbs',
+          '<%= settings.data %>/*.json'
+        ],
+        tasks: [
+          'copy:site',
+          'build'
+        ]
+      },
+      twig:   {
+        files: [
+          '<%= settings.components %>/**/*.twig',
           '<%= settings.data %>/*.json'
         ],
         tasks: [
@@ -194,19 +216,6 @@ module.exports = function(grunt) {
           '<%= settings.organisms %>/**/*.js'
         ],
         tasks: ['test']
-      }
-    },
-
-
-    // ##### Compile scripts with Require JS
-    requirejs: {
-      site: {
-        options: {
-          baseUrl:        "<%= settings.scripts %>",
-          mainConfigFile: "<%= settings.scripts %>/config.js",
-          name:           "main",
-          out:            "<%= settings.dest %>/<%= settings.scripts %>/all.min.js"
-        }
       }
     },
 
@@ -324,14 +333,13 @@ module.exports = function(grunt) {
   //
   grunt.loadNpmTasks('grunt-newer');
   grunt.loadNpmTasks('grunt-twig-render');
+  grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-contrib-requirejs');
-  grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-mocha-casperjs');
   grunt.loadNpmTasks('grunt-browser-sync');
   grunt.loadNpmTasks('grunt-phantomcss');
@@ -351,6 +359,8 @@ module.exports = function(grunt) {
 
     // Get all files matching the glob from options
     grunt.file.expand(filesTmp).map(function(filepath) {
+
+      // DEUBG
       console.log(filepath);
 
       // Get basename
@@ -376,7 +386,7 @@ module.exports = function(grunt) {
   grunt.registerTask('build', ['twigRender:site']);
   // * `grunt scripts`
   // > Check for errors in javascript
-  grunt.registerTask('scripts', ['requirejs']);
+  grunt.registerTask('scripts', ['browserify:dist']);
   // * `grunt styles`
   // > Generate components import and compile SASS
   grunt.registerTask('styles', [

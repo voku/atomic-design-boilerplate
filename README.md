@@ -1,23 +1,13 @@
 Atomic Design Boilerplate
 =====================
-> Yonas Sandbaek [@seltar](https://twitter.com/seltar), [github](https://github.com/seltar)  
-> https://github.com/seltar/atomic-design-boilerplate
-
-###### Version
-> 0.1.2
 
 ### What is this
 This project aims to give structure and improve automation when working with atomic design principles.
 
-### Commenting
-Use markdown syntax in comments for nice formatted documentation  
-[Markdown syntax](http://daringfireball.net/projects/markdown/syntax)
-
 ### Starting up
-- Clone the [repo](https://github.com/seltar/atomic-design-boilerplate.git) or download and unpack this [zip](https://github.com/seltar/atomic-design-boilerplate/archive/master.zip) to a new folder
+- Clone the [repo](https://github.com/voku/atomic-design-boilerplate.git) or download and unpack this [zip](https://github.com/seltar/atomic-design-boilerplate/archive/master.zip) to a new folder
 - Open up terminal and install dependencies with `[sudo] npm install`
 - Run `grunt` to build and start watching
-- Go forth and write your jargon, you little codemonkey!
 
 ### Configuration
 - To change the folder configuration, edit `settings.yml`
