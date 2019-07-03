@@ -23,7 +23,8 @@
   "main": "Gruntfile.js",
   "dependencies": {
     "babel-preset-es2015": "^6.9.0",
-    "chalk": "^1.1.3"
+    "chalk": "^1.1.3",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "bower": "^1.7.9",
@@ -62,5 +63,10 @@
     "sinon": "^1.17.4",
     "tmp": "0.0.28",
     "twig": "^0.9.5"
-  }
+  },
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "snyk": true
 }
